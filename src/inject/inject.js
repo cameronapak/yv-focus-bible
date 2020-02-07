@@ -21,6 +21,16 @@ var scriptureMode = true; // we assume scripture is open
 var planMode = false; // if in a plan, then display plan focus
 var loggedIn = false;
 
+let isLoggedIn = false
+const checkLoginStatus = () => {
+  const currentUrl = document.URL
+  let loggedInUrl = 'my.bible.com'
+
+  if (currentUrl.includes(loggedInUrl)) {
+    isLoggedIn = true
+  }
+}
+
 /* Testing Bible Commentary */
 var commentaryLink = ''
 
@@ -203,6 +213,10 @@ function getCommentaryLink() {
 
 /* paves the way for focus mode to be enabled */
 function prepFocusMode() {
+  if (isLoggedIn) {
+    return
+  }
+
   // grab the Bible reader
   try {
     reader = document.getElementsByClassName('yv-bible-text')[0];
@@ -275,8 +289,9 @@ function removeHeaderAndFooter() {
 chrome.extension.sendMessage({}, function (response) {
   var readyStateCheckInterval = setInterval(function () {
     if (document.readyState === "complete") {
-      clearInterval(readyStateCheckInterval);
-      prepFocusMode();
+      clearInterval(readyStateCheckInterval)
+      checkLoginStatus()
+      prepFocusMode()
     } /* Document ready */
   }, 10);
 });

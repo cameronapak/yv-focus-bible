@@ -11,15 +11,13 @@
   "background": {},
   "permissions": [
     "contentSettings",
-    "https://*.bible.com/*"
-  ],
-  "web_accessible_resources": [
-    "src/inject/inject.css"
-  ],
-  "permissions": [
+    "https://*.bible.com/*",
     "storage",
     "activeTab",
     "declarativeContent"
+  ],
+  "web_accessible_resources": [
+    "src/inject/inject.css"
   ],
   "content_scripts": [
     {
