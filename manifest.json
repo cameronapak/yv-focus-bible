@@ -1,0 +1,39 @@
+{
+  "name": "Focus Bible",
+  "version": "1.0.3",
+  "manifest_version": 2,
+  "description": "Focus on scripture one verse at a time. Using YouVersion's Bible.com.",
+  "icons": {
+    "16": "icons/FBicon-16.png",
+    "48": "icons/FBicon-48.png",
+    "128": "icons/FBicon-128.png"
+  },
+  "default_locale": "en",
+  "background": {
+
+  },
+  "permissions": [
+    "contentSettings",
+    "https://*.bible.com/*"
+  ],
+  "web_accessible_resources": [
+    "src/inject/inject.css"
+  ],
+  "permissions": [
+    "storage", "activeTab", "declarativeContent"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "https://*.bible.com/*"
+      ],
+      "js": [
+        "src/inject/inject.js"
+      ]
+    }
+  ],
+  "browser_action": {
+    "default_popup": "popup.html",
+    "default_title": "Focus Bible"
+  }
+}

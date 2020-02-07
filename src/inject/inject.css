@@ -1,0 +1,274 @@
+/**
+ * Place your custom CSS styles here.
+ **/
+:root {
+  --color-blue: #00a8d8;
+  --color-text: #404041;
+  --circle-size: 90px;
+}
+
+.yv-bible-text .focus {
+  opacity: 1.0 !important;
+  transform: scale(1.05);
+  transition: all 0.5s cubic-bezier(.15, .5, .35, 1);
+}
+
+.yv-bible-text .yv-verse {
+  opacity: 0.1;
+  margin-top: 1.5em !important;
+  transition: all 0.5s ease-out;
+}
+
+.bible-reader .focus {
+  opacity: 1.0 !important;
+  transform: scale(1.05);
+  transition: all 0.5s cubic-bezier(.15, .5, .35, 1);
+}
+
+.bible-reader .yv-verse {
+  opacity: 0.1;
+  margin-top: 1.5em !important;
+  transition: all 0.5s ease-out;
+}
+
+.start-ch {
+  font-family: inherit;
+  text-align: center;
+  font-size: 1em;
+  color: var(--color-text);
+  margin: 1em 0.25em 0 0.25em;
+  opacity: 0;
+  animation: prompt 10s forwards 1s ease;
+}
+
+@keyframes scrollWhenReady {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+.ready {
+  text-align: center;
+  margin: 1em 0.25em 0 0.25em;
+  font-family: inherit;
+  font-size: 1em;
+  opacity: 0.0;
+  color: var(--color-text);
+  animation: scrollWhenReady 2s forwards 6s ease-in;
+}
+
+@keyframes prompt {
+  0% {
+    opacity: 0;
+  }
+
+  25% {
+    opacity: 1;
+  }
+
+  75% {
+    opacity: 0;
+  }
+}
+
+.circle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  height: var(--circle-size);
+  width: var(--circle-size);
+  margin: auto;
+}
+
+.circle::after {
+  border: 0px solid var(--color-blue);
+  border-radius: 50%;
+  content: "";
+  font-size: 40px;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: calc(var(--circle-size) - 20px);
+  width: calc(var(--circle-size) - 20px);
+  animation-name: breathe;
+  animation-duration: 10s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes breathe {
+  0% {
+    background-color: var(--color-blue);
+    opacity: 0.5;
+    color: white;
+    content: "";
+    transform: scale(0.2);
+  }
+
+  49% {
+    content: ""
+  }
+
+  50% {
+    background-color: var(--color-blue);
+    opacity: 0.5;
+    transform: scale(1)
+  }
+
+  51% {
+    content: "";
+  }
+
+  99% {
+    content: "";
+  }
+
+  100% {
+    background-color: var(--color-blue);
+    opacity: 0.5;
+    content: "";
+    transform: scale(0.2)
+  }
+}
+
+/* NLT */
+.yv-bible-text .verse,
+.bible-reader .verse  {
+  opacity: 0.1;
+  /* display: inline-block; */
+  display: block;
+  margin-top: 1.75em;
+  transition: all 0.5s ease-out 0s !important;
+  -webkit-transition: all 0.5s ease-out 0s !important;
+  -moz-transition: all 0.5s ease-out 0s !important;
+  -ms-transition: all 0.5s ease-out 0s !important;
+}
+
+.yv-bible-text .label,
+.yv-bible-text .content,
+.yv-bible-text .note,
+.bible-reader .label,
+.bible-reader .content,
+.bible-reader .note {
+  display: inline !important;
+}
+
+.yv-bible-text .chapter>.label,
+.bible-reader .chapter>.label {
+  display: none !important;
+}
+
+.yv-bible-text .label,
+.bible-reader .label {
+  opacity: 0.25;
+  transition: all 0.5s cubic-bezier(.15, .5, .35, 1);
+}
+
+.yv-bible-text .label:hover,
+.bible-reader .label:hover {
+  opacity: 1;
+  cursor: none;
+}
+
+.yv-bible-text .note .label,
+.bible-reader .note .label {
+  display: none !important;
+}
+
+/* Test scroll snap points
+.chapter {
+  scroll-snap-type: y mandatory;
+  scroll-padding-top: 45vh;
+  scroll-padding-bottom: 45vh;
+  overflow-x: visible;
+  overflow-y: visible;
+}
+
+div .verse {
+  scroll-snap-align: center;
+}
+*/
+
+/* book headings */
+.yv-bible-text .heading,
+.yv-bible-text .d,
+.bible-reader .heading,
+.bible-reader .d,
+.lh-copy {
+  opacity: 0.1;
+  transition: all 0.5s ease-out 0s !important;
+  -webkit-transition: all 0.5s ease-out 0s !important;
+  -moz-transition: all 0.5s ease-out 0s !important;
+  -ms-transition: all 0.5s ease-out 0s !important;
+}
+
+.visible {
+  opacity: 1.0 !important;;
+}
+/* end book headings */
+
+/* grayscale images for focus */
+img.i-amphtml-replaced-content {
+  transition: all 0.5s ease-out 0s !important;
+  -webkit-transition: all 0.5s ease-out 0s !important;
+  -moz-transition: all 0.5s ease-out 0s !important;
+  -ms-transition: all 0.5s ease-out 0s !important;
+}
+
+img.i-amphtml-fill-content.i-amphtml-replaced-content {
+  filter: grayscale(1);
+}
+
+.yv-green {
+  color: #404041;
+}
+/* end grayscale images */
+
+/* soften lines */
+.b--black-20 {
+  border-color: rgba(0,0,0,.075);
+}
+
+/* Plans */
+.devotional h3,
+.devotional h1,
+.devotional h2,
+.devotional p,
+.devotional blockquote {
+  opacity: 0.1;
+  -webkit-transition: all 0.5s ease-out 0s !important;
+  -moz-transition: all 0.5s ease-out 0s !important;
+  -ms-transition: all 0.5s ease-out 0s !important;
+  transition: all 0.5s ease-out 0s !important;
+}
+
+/* I do this because I don't think displaying "devotional" is necessary */
+.devo-header {
+  display: none !important;
+}
+
+/* Margin to bring content to the middle of screen */
+.yv-bible-text,
+.bible-reader,
+.devotional {
+  /* margin-top: 15vh; */
+  margin-bottom: 40vh;
+}
+
+/* add the verse picker to the top */
+.bible-pick-list {
+  top: 68px;
+}
+
+.reader-header {
+  top: 0px !important;
+}
+
+.site-header {
+  display: none;
+}
