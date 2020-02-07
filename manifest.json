@@ -8,10 +8,7 @@
     "48": "icons/FBicon-48.png",
     "128": "icons/FBicon-128.png"
   },
-  "default_locale": "en",
-  "background": {
-
-  },
+  "background": {},
   "permissions": [
     "contentSettings",
     "https://*.bible.com/*"
@@ -20,7 +17,9 @@
     "src/inject/inject.css"
   ],
   "permissions": [
-    "storage", "activeTab", "declarativeContent"
+    "storage",
+    "activeTab",
+    "declarativeContent"
   ],
   "content_scripts": [
     {
