@@ -7,13 +7,13 @@
   * [X] Logged in focus mode.
   * [ ] Figure out how to re-run on page change.
 	* [ ] Plan focus mode.
-	* [ ] Fix broken highlighting in focus mode.
+	* [X] Fix broken highlighting in focus mode.
 
 	Update: I turned off the logged in mode and plans for right now.
 */
 
 // variables
-var isFocusEnabled
+let isFocusEnabled
 var verses // used to get a query of all verses
 var getElementsInArea // used to get verse in middle of screen.
 var reader // used to get the reader html
@@ -234,11 +234,11 @@ function prepFocusMode() {
   if (scriptureMode || planMode) {
     // grab the focus status
     chrome.storage.sync.get("bibleFocusEnabled", function (items) {
-
+      console.log('did I get any items? If so, then I must be good.', items)
       // if focus toggle storage var doesn't exist
       if (items.bibleFocusEnabled === undefined) {
         chrome.storage.sync.set({
-          'bibleFocusEnabled': 'true'
+          'bibleFocusEnabled': true
         }, function () {
           console.log('Bible Focus Enabled: true')
         })
