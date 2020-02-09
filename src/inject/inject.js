@@ -122,7 +122,8 @@ function toggleFocusReader() {
   fileref = document.createElement("link")
   fileref.setAttribute("rel", "stylesheet")
   fileref.setAttribute("type", "text/css")
-  fileref.setAttribute("href", "chrome-extension://ioflbgigemihmblihppmhdnaefdaligj/src/inject/inject.css")
+  // fileref.setAttribute("href", "chrome-extension://ioflbgigemihmblihppmhdnaefdaligj/src/inject/inject.css")
+  fileref.setAttribute("href", "chrome-extension://gnknniobgdhfgiminhjehejgkkeghoka/src/inject/inject.css")
 
   // fileref.setAttribute("href", "chrome-extension://jbjgbfheajcenmdgohnodpnigokdpdik/src/inject/inject.css")
   document.getElementsByTagName("head")[0].appendChild(fileref)
