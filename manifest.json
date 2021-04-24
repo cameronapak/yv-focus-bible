@@ -22,7 +22,7 @@
   "content_scripts": [
     {
       "matches": [
-        "https://*.bible.com/*"
+        "https://*.bible.com/bible/*"
       ],
       "js": [
         "src/inject/inject.js"
