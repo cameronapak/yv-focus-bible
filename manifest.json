@@ -13,8 +13,7 @@
     "contentSettings",
     "https://*.bible.com/*",
     "storage",
-    "activeTab",
-    "declarativeContent"
+    "activeTab"
   ],
   "web_accessible_resources": [
     "src/inject/inject.css"
