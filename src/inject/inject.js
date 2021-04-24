@@ -29,16 +29,26 @@ function checkLoginStatus() {
   }
 }
 
+function testMiddlePosition() {
+  const newElement = document.createElement('div')
+  newElement.children = `${document.documentElement.clientWidth / 2}, ${document.documentElement.clientHeight / 2}`
+  newElement.style = `position: fixed; top: ${document.documentElement.clientHeight / 2}px; left: ${document.documentElement.clientWidth / 2}px; height: 4px; width: 4px; border-radius: 5px; background-color: red;`
+  reader.prepend(newElement)
+}
+
 // on every scroll, focus on the middle verse
 function enableFocusOnScroll() {
+  // testMiddlePosition()
   let isScrolling
   window.addEventListener('scroll', () => {
     // Clear our timeout throughout the scroll
     window.clearTimeout(isScrolling);
 
     // Set a timeout to run after scrolling ends
+    let centerX = document.documentElement.clientWidth / 2;
+    let centerY = document.documentElement.clientHeight / 2;
     isScrolling = setTimeout(function () {
-      const elementsInMiddleOfScreen = document.elementsFromPoint(document.documentElement.clientHeight / 5, document.documentElement.clientWidth / 2)
+      const elementsInMiddleOfScreen = document.elementsFromPoint(centerX, centerY);
       if (!elementsInMiddleOfScreen || !elementsInMiddleOfScreen.length) {
         return
       }
@@ -49,9 +59,9 @@ function enableFocusOnScroll() {
       // Remove existing focus classes
       const focusClassList = ['focus', 'visible']
       for (className of focusClassList) {
-        document.querySelectorAll(`.${className}`).forEach((elem) => {
-          elem.classList.toggle(className)
-        })
+        for (element of document.querySelectorAll(`.${className}`)) {
+          element.classList.toggle(className)
+        }
       }
 
       // Apply classes to emphasize content
