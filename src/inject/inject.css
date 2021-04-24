@@ -7,6 +7,12 @@
   --circle-size: 90px;
 }
 
+html {
+  scroll-snap-type: y proximity;
+  overflow-y: scroll;
+  height: 100vh;
+}
+
 .yv-bible-text .focus {
   opacity: 1.0 !important;
   transform: scale(1.05);
@@ -138,15 +144,17 @@
 
 /* NLT */
 .yv-bible-text .verse,
-.bible-reader .verse  {
+.bible-reader .verse {
   opacity: 0.1;
   /* display: inline-block; */
   display: block;
-  margin-top: 1.75em;
+  margin-top: 2em;
   transition: all 0.5s ease-out 0s !important;
   -webkit-transition: all 0.5s ease-out 0s !important;
   -moz-transition: all 0.5s ease-out 0s !important;
   -ms-transition: all 0.5s ease-out 0s !important;
+  scroll-snap-align: center;
+  scroll-snap-stop: always;
 }
 
 .yv-bible-text .label,
@@ -180,20 +188,6 @@
   display: none !important;
 }
 
-/* Test scroll snap points
-.chapter {
-  scroll-snap-type: y mandatory;
-  scroll-padding-top: 45vh;
-  scroll-padding-bottom: 45vh;
-  overflow-x: visible;
-  overflow-y: visible;
-}
-
-div .verse {
-  scroll-snap-align: center;
-}
-*/
-
 /* book headings */
 .yv-bible-text .heading,
 .yv-bible-text .d,
@@ -205,6 +199,11 @@ div .verse {
   -webkit-transition: all 0.5s ease-out 0s !important;
   -moz-transition: all 0.5s ease-out 0s !important;
   -ms-transition: all 0.5s ease-out 0s !important;
+}
+.s1,
+.devotional p {
+  scroll-snap-align: center;
+  scroll-snap-stop: always;
 }
 
 .visible {
@@ -269,6 +268,8 @@ img.i-amphtml-fill-content.i-amphtml-replaced-content {
   top: 0px !important;
 }
 
-.site-header {
+/* Hide the header and footers */
+.site-header,
+.bottom-0-l.bg-white.b--black-20.bt-l.z-999 {
   display: none;
 }
